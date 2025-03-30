@@ -38,6 +38,7 @@ type chainConfig struct {
 	Active   bool `long:"active" description:"If the chain should be active or not"`
 	MainNet  bool `long:"mainnet" description:"Use the main network"`
 	TestNet3 bool `long:"testnet" description:"Use the test network"`
+	TestNet4 bool `long:"testnet4" description:"Use the test network"`
 	SimNet   bool `long:"simnet" description:"Use the simulation test network"`
 	RegTest  bool `long:"regtest" description:"Use the regression test network"`
 }
@@ -167,6 +168,10 @@ func loadConfig() (*config, error) {
 			numNets++
 			networkName = "testnet"
 		}
+		if cfg.Bitcoin.TestNet4 {
+			numNets++
+			networkName = "testnet4"
+		}
 		if cfg.Bitcoin.RegTest {
 			numNets++
 			networkName = "regtest"
@@ -176,7 +181,7 @@ func loadConfig() (*config, error) {
 			networkName = "simnet"
 		}
 		if numNets > 1 {
-			str := "The mainnet, testnet, regtest, and " +
+			str := "The mainnet, testnet, testnet4, regtest, and " +
 				"simnet params can't be used together -- " +
 				"choose one of the four"
 			err := fmt.Errorf(str)
