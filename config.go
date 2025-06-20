@@ -38,7 +38,7 @@ type chainConfig struct {
 	Active   bool `long:"active" description:"If the chain should be active or not"`
 	MainNet  bool `long:"mainnet" description:"Use the main network"`
 	TestNet3 bool `long:"testnet" description:"Use the test network"`
-	TestNet4 bool `long:"testnet4" description:"Use the test network"`
+	TestNet4 bool `long:"testnet4" description:"Use the test4 network"`
 	SimNet   bool `long:"simnet" description:"Use the simulation test network"`
 	RegTest  bool `long:"regtest" description:"Use the regression test network"`
 }
